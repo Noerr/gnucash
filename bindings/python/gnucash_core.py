@@ -740,14 +740,6 @@ class GncPrice(GnuCashCoreClass):
     _new_instance = 'gnc_price_create'
 GncPrice.add_methods_with_prefix('gnc_price_')
 
-gnc_price_dict = {
-                    'get_commodity': GncCommodity,
-                    'get_currency': GncCommodity,
-                    'clone': GncPrice,
-                    'get_value': GncNumeric,
-                 }
-methods_return_instance(GncPrice, gnc_price_dict)
-
 
 class GncPriceDB(GnuCashCoreClass):
     '''
@@ -996,6 +988,15 @@ gnc_commodity_dict = {
                         'get_namespace_ds': GncCommodityNamespace,
                      }
 methods_return_instance(GncCommodity, gnc_commodity_dict)
+
+# GncPrice (deferred until after GncCommodity is defined)
+gnc_price_dict = {
+                    'get_commodity': GncCommodity,
+                    'get_currency': GncCommodity,
+                    'clone': GncPrice,
+                    'get_value': GncNumeric,
+                 }
+methods_return_instance(GncPrice, gnc_price_dict)
 
 # GncCommodityTable
 GncCommodityTable.add_methods_with_prefix('gnc_commodity_table_')
