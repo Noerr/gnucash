@@ -63,10 +63,58 @@ These were verified on this branch with `-DWITH_GNUCASH=OFF`:
   requires XML backend not built with `WITH_GNUCASH=OFF`)
 - All 17 targeted tests below pass
 
-## Tests Needing a GnuCash Database
+## Automated Test Suite (uses in-repo data files)
 
-The following need a GnuCash file (SQLite or XML) with accounts, commodities,
-and price data. Use a file with at least two currencies and some price history.
+A new test file has been added:
+
+```
+bindings/python/tests/test_price_and_wrapping.py
+```
+
+This uses test data **already in the repository** — no external files needed:
+
+| Test data file | Location | Contents |
+|----------------|----------|----------|
+| `pricedb1.gml2` | `libgnucash/backend/xml/test/test-files/xml2/` | 13 stock commodities (CORL, ANDN, EGRP, etc.) with many prices in USD |
+| `sample1.gnucash` | `libgnucash/backend/xml/test/test-files/load-save/` | Accounts, transactions, splits, and 1 lot |
+
+### Test classes and what they cover
+
+| Test class | Data file | What it tests |
+|------------|-----------|---------------|
+| `TestGncPriceWrapping` | pricedb1.gml2 | `lookup_latest` → GncPrice, `nth_price` → GncPrice, `get_commodity/currency` → GncCommodity, `get_value` → GncNumeric, `clone` → GncPrice, list methods → list[GncPrice] |
+| `TestGncLotSplitList` | sample1.gnucash | `GncLot.get_split_list()` → list[Split] |
+| `TestAccountCurrencyOrParent` | sample1.gnucash | `Account.get_currency_or_parent()` → GncCommodity |
+| `TestCommodityObtainTwin` | *(in-memory)* | `GncCommodity.obtain_twin(book)` → GncCommodity |
+| `TestCommodityNamespaceDS` | *(in-memory)* | `GncCommodity.get_namespace_ds()` → GncCommodityNamespace |
+| `TestSwigTypemapCompat` | pricedb1.gml2 | Wrapper→C function emits DeprecationWarning; `.instance` does not |
+
+### Running the tests
+
+**Requires XML backend** (full build):
+```bash
+cd build
+cmake .. -DWITH_PYTHON=ON -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+
+# Run just the new wrapping tests:
+cd /path/to/source
+PYTHONPATH=build/lib:build/lib/gnucash python -m pytest \
+    bindings/python/tests/test_price_and_wrapping.py -v
+
+# Or with unittest:
+python -m unittest bindings.python.tests.test_price_and_wrapping -v
+```
+
+Tests that need the XML backend will **auto-skip** (not fail) when built
+with `-DWITH_GNUCASH=OFF`. The in-memory tests (`TestCommodityObtainTwin`,
+`TestCommodityNamespaceDS`) always run.
+
+## Manual Testing with Your Own Data
+
+If you want to test against your own GnuCash file (SQLite or XML) with
+richer data (multiple currencies, more lots, business objects), here are
+copy-paste scripts.
 
 ### GncPrice wrapping (highest priority)
 
