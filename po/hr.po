@@ -1,14 +1,14 @@
 # Croatian translations for GnuCash.
 # Copyright (C) 2019 Free Software Foundation, Inc.
 # This file is distributed under the same license as the GnuCash package.
-# Milo Ivir <mail@milotype.de>, 2019., 2020, 2021, 2022, 2023, 2024, 2025.
+# Milo Ivir <mail@milotype.de>, 2019., 2020, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: GnuCash 5.14\n"
 "Report-Msgid-Bugs-To: https://bugs.gnucash.org/"
 "enter_bug.cgi?product=GnuCash&component=Translations\n"
 "POT-Creation-Date: 2025-12-14 10:54-0800\n"
-"PO-Revision-Date: 2025-12-21 21:00+0000\n"
+"PO-Revision-Date: 2026-02-18 23:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gnucash/gnucash/"
 "hr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: bindings/guile/date-utilities.scm:173
 #: gnucash/report/reports/example/daily-reports.scm:260
@@ -30621,37 +30621,37 @@ msgstr "Amsterdam Euronext eXchange, NL"
 #: libgnucash/engine/gnc-commodity.cpp:193
 msgctxt "FQ Source"
 msgid "Association of Mutual Funds in India"
-msgstr ""
+msgstr "Udruženje uzajamnih fondova u Indiji (AMFI)"
 
 #: libgnucash/engine/gnc-commodity.cpp:194
 msgctxt "FQ Source"
 msgid "Athens Exchange Group, GR"
-msgstr ""
+msgstr "Atenska burza, GR"
 
 #: libgnucash/engine/gnc-commodity.cpp:195
 msgctxt "FQ Source"
 msgid "Australian Stock Exchange, AU"
-msgstr ""
+msgstr "Australska burza, AU"
 
 #: libgnucash/engine/gnc-commodity.cpp:196
 msgctxt "FQ Source"
 msgid "Italian Stock Exchange, IT"
-msgstr ""
+msgstr "Talijanska burza, IT"
 
 #: libgnucash/engine/gnc-commodity.cpp:197
 msgctxt "FQ Source"
 msgid "BSE India, IN"
-msgstr ""
+msgstr "Bombajska burza,IN"
 
 #: libgnucash/engine/gnc-commodity.cpp:198
 msgctxt "FQ Source"
 msgid "Bucharest Stock Exchange, RO"
-msgstr ""
+msgstr "Bukureštanska burza, RO"
 
 #: libgnucash/engine/gnc-commodity.cpp:199
 msgctxt "FQ Source"
 msgid "Colombo Stock Exchange, LK"
-msgstr ""
+msgstr "Kolombska burza (CSE), LK"
 
 #: libgnucash/engine/gnc-commodity.cpp:200
 msgctxt "FQ Source"
@@ -30671,7 +30671,7 @@ msgstr "Deka Investments, DE"
 #: libgnucash/engine/gnc-commodity.cpp:203
 msgctxt "FQ Source"
 msgid "Financial Times Funds service, GB"
-msgstr ""
+msgstr "Usluga Financial Timesa (FT), GB"
 
 #: libgnucash/engine/gnc-commodity.cpp:204
 msgctxt "FQ Source"
@@ -30686,12 +30686,12 @@ msgstr "FondsWeb, DE"
 #: libgnucash/engine/gnc-commodity.cpp:206
 msgctxt "FQ Source"
 msgid "GoldMoney precious metals"
-msgstr ""
+msgstr "GoldMoney, plemeniti metali"
 
 #: libgnucash/engine/gnc-commodity.cpp:207
 msgctxt "FQ Source"
 msgid "Google Web, US Stocks"
-msgstr ""
+msgstr "Google Web, američke dionice"
 
 #: libgnucash/engine/gnc-commodity.cpp:208
 msgctxt "FQ Source"
@@ -30721,12 +30721,12 @@ msgstr "Motley Fool"
 #: libgnucash/engine/gnc-commodity.cpp:213
 msgctxt "FQ Source"
 msgid "New Zealand stock eXchange, NZ"
-msgstr ""
+msgstr "Novozelandska burza, NZ"
 
 #: libgnucash/engine/gnc-commodity.cpp:214
 msgctxt "FQ Source"
 msgid "NSE (National Stock Exchange), IN"
-msgstr ""
+msgstr "NSE (Nacionalna burza), IN"
 
 #: libgnucash/engine/gnc-commodity.cpp:215
 msgctxt "FQ Source"
@@ -30736,7 +30736,7 @@ msgstr "OnVista, DE"
 #: libgnucash/engine/gnc-commodity.cpp:216
 msgctxt "FQ Source"
 msgid "Paris Stock Exchange/Boursorama, FR"
-msgstr ""
+msgstr "Pariška burza/Boursorama, FR"
 
 #: libgnucash/engine/gnc-commodity.cpp:217
 msgctxt "FQ Source"
@@ -30746,7 +30746,7 @@ msgstr "S-Investor, DE"
 #: libgnucash/engine/gnc-commodity.cpp:218
 msgctxt "FQ Source"
 msgid "Sharenet, ZA"
-msgstr ""
+msgstr "Sharenet, ZA"
 
 #: libgnucash/engine/gnc-commodity.cpp:219
 msgctxt "FQ Source"
@@ -30771,12 +30771,12 @@ msgstr "Swiss Fund Data AG, CH"
 #: libgnucash/engine/gnc-commodity.cpp:223
 msgctxt "FQ Source"
 msgid "Tesouro Direto bonds, BR"
-msgstr ""
+msgstr "Tesouro Direto obveznice, BR"
 
 #: libgnucash/engine/gnc-commodity.cpp:224
 msgctxt "FQ Source"
 msgid "Toronto Stock eXchange, CA"
-msgstr ""
+msgstr "Toronto Stock eXchange burza, CA"
 
 #: libgnucash/engine/gnc-commodity.cpp:225
 msgctxt "FQ Source"
@@ -30786,7 +30786,7 @@ msgstr "Tradegate, DE"
 #: libgnucash/engine/gnc-commodity.cpp:226
 msgctxt "FQ Source"
 msgid "Treasury Direct bonds, US"
-msgstr ""
+msgstr "Treasury Direct obveznice, US"
 
 #: libgnucash/engine/gnc-commodity.cpp:227
 msgctxt "FQ Source"
@@ -30801,7 +30801,7 @@ msgstr "Union Investment, DE"
 #: libgnucash/engine/gnc-commodity.cpp:229
 msgctxt "FQ Source"
 msgid "US Govt. Thrift Savings Plan"
-msgstr ""
+msgstr "US Govt. Thrift Savings Plan"
 
 #: libgnucash/engine/gnc-commodity.cpp:230
 msgctxt "FQ Source"
@@ -30821,7 +30821,7 @@ msgstr "Yahoo Web"
 #: libgnucash/engine/gnc-commodity.cpp:233
 msgctxt "FQ Source"
 msgid "YH Finance (FinanceAPI)"
-msgstr ""
+msgstr "YH Finance (FinanceAPI)"
 
 #: libgnucash/engine/gnc-commodity.cpp:239
 msgctxt "FQ Source"
@@ -30851,7 +30851,7 @@ msgstr "NYSE (Alphavantage, FinanceAPI, …)"
 #: libgnucash/engine/gnc-commodity.cpp:244
 msgctxt "FQ Source"
 msgid "U.K. Funds (FTfunds, MorningstarUK)"
-msgstr ""
+msgstr "Obveznice Ujedinjenog Kraljevstva (FTfunds, MorningstarUK)"
 
 #: libgnucash/engine/gnc-commodity.cpp:245
 msgctxt "FQ Source"

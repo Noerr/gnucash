@@ -2646,11 +2646,7 @@ be excluded from periodic reporting.")
            document
            (gnc:make-html-text
             (gnc:html-markup-h3
-             (format #f
-                     ;; Translators: Both ~a's are dates
-                     (G_ "From ~a to ~a")
-                     (qof-print-date begindate)
-                     (qof-print-date enddate)))))
+             (gnc-date-interval-format begindate enddate))))
 
           (when (eq? infobox-display 'always)
             (gnc:html-document-add-object!

@@ -31,7 +31,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.gnucash.org/"
 "enter_bug.cgi?product=GnuCash&component=Translations\n"
 "POT-Creation-Date: 2025-12-14 10:54-0800\n"
-"PO-Revision-Date: 2026-01-29 03:01+0000\n"
+"PO-Revision-Date: 2026-02-12 21:09+0000\n"
 "Last-Translator: Yegor Derevenets <yegor.derevenets@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gnucash/gnucash/"
 "ru/>\n"
@@ -19479,7 +19479,7 @@ msgstr "Файл был успешно экспортирован!\n"
 #: gnucash/report/reports/standard/register.scm:217
 #: libgnucash/engine/Split.cpp:1610 libgnucash/engine/Split.cpp:1627
 msgid "-- Split Transaction --"
-msgstr "-- Разделённая проводка --"
+msgstr "-- Сложная проводка --"
 
 #: gnucash/import-export/csv-exp/csv-transactions-export.cpp:368
 msgid "Full Category Path"
@@ -28526,8 +28526,8 @@ msgid ""
 "Display the other account name? If this is a split transaction, this "
 "parameter is guessed."
 msgstr ""
-"Показывать название другого счёта? Если проводка разделённая, то программа "
-"попытается определить значение этого параметра."
+"Показывать название другого счёта? Если проводка состоит из нескольких "
+"частей, то программа попытается определить значение этого параметра."
 
 #: gnucash/report/trep-engine.scm:970
 msgid "Amount of detail to display per transaction."
@@ -28624,7 +28624,7 @@ msgstr "Перенесённый остаток"
 
 #: gnucash/report/trep-engine.scm:1776
 msgid "Split Transaction"
-msgstr "Разделённая проводка"
+msgstr "Сложная проводка"
 
 #: gnucash/report/trep-engine.scm:2029
 msgid "CSV disabled for double column amounts"
