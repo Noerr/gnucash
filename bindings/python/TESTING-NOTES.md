@@ -33,6 +33,7 @@ types). These typemaps:
 | GncCommodity | `obtain_twin(book)` | SwigPyObject | GncCommodity |
 | GncCommodity | `get_namespace_ds()` | SwigPyObject | GncCommodityNamespace |
 | Account | `get_currency_or_parent()` | SwigPyObject | GncCommodity |
+| Account | `GetLotList()` | list[SwigPyObject] | list[GncLot] |
 | GncLot | `get_split_list()` | list[SwigPyObject] | list[Split] |
 
 ### 3. Example Script Cleanup
@@ -44,24 +45,33 @@ Removed `type(x).__name__ == 'SwigPyObject'` workarounds from:
 
 ## Build Instructions
 
+Minimal build (in-memory tests only):
 ```bash
 mkdir build && cd build
 cmake .. -DWITH_PYTHON=ON -DWITH_GNUCASH=OFF -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 ```
 
-For full build with backends (needed for file-based tests):
+To also run file-based tests, build the XML backend (does **not** require
+`WITH_GNUCASH=ON` or WebKitGTK):
 ```bash
-cmake .. -DWITH_PYTHON=ON -DCMAKE_BUILD_TYPE=Release
+cmake .. -DWITH_PYTHON=ON -DWITH_GNUCASH=OFF -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+make gncmod-backend-xml
 ```
 
-## Tests Already Passing (no database needed)
+## Test Results
 
-These were verified on this branch with `-DWITH_GNUCASH=OFF`:
+With full build (XML backend enabled, `-DWITH_GNUCASH=OFF` but XML backend
+built via `make gncmod-backend-xml`):
 
-- Existing test suite: **55/56 pass** (1 pre-existing failure: `test_session_with_new_file`
-  requires XML backend not built with `WITH_GNUCASH=OFF`)
-- All 17 targeted tests below pass
+- **74/74 tests pass** (18 new wrapping tests + 56 existing)
+- `test_session_with_new_file` also passes once the XML backend is available
+
+With `-DWITH_GNUCASH=OFF` (no XML backend):
+
+- Existing test suite: **55/56 pass** (1 pre-existing skip: `test_session_with_new_file`)
+- In-memory wrapping tests (2 of 18) still run; file-based tests auto-skip
 
 ## Automated Test Suite (uses in-repo data files)
 
