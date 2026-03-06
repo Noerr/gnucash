@@ -52,9 +52,11 @@ _HAS_SAMPLE_DATA = _SAMPLE_FILE is not None and _SAMPLE_FILE.exists()
 
 def _copy_to_tmp(src_path, tmpdir):
     """Copy a GnuCash file into a temp dir and return an xml:// URI."""
-    dest = os.path.join(tmpdir, os.path.basename(src_path))
+    fname = os.path.basename(src_path)
+    dest = os.path.join(tmpdir, fname)
     shutil.copy2(str(src_path), dest)
-    return urlunparse(("xml", "", dest, "", "", ""))
+    # URI format: xml://<dir>/<filename>  (matches test_session.py convention)
+    return urlunparse(("xml", tmpdir, fname, "", "", ""))
 
 
 def _can_open_xml():
