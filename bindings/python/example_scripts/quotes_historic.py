@@ -17,7 +17,7 @@
 #   https://wiki.gnucash.org/wiki/Stocks/get_prices
 #
 
-from gnucash import Session, Account, Split
+from gnucash import Session, Account, Split, GncNumeric
 import gnucash
 import datetime
 from fractions import Fraction
@@ -75,14 +75,17 @@ for i in range(1,len(pl)):
   pdb.remove_price(pl[i])
 
 for i in range(0,len(stock_date)):
+  # clone() now returns a fully wrapped GncPrice, so re-wrapping it with
+  # gnucash.GncPrice(instance=...) is no longer necessary.
   p_new = pl0.clone(book)
-  p_new = gnucash.GncPrice(instance=p_new)
   print('Adding',i,stock_date[i],stock_price[i])
   p_new.set_time64(stock_date[i])
-  v = p_new.get_value()
-  v.num = int(Fraction.from_float(stock_price[i]).limit_denominator(100000).numerator)
-  v.denom = int(Fraction.from_float(stock_price[i]).limit_denominator(100000).denominator)
-  p_new.set_value(v)
+  # get_value() now returns a GncNumeric wrapper whose num()/denom() are
+  # read-only methods, so mutating v.num / v.denom no longer changes the
+  # underlying value. Build a fresh GncNumeric and hand it to set_value().
+  num = int(Fraction.from_float(stock_price[i]).limit_denominator(100000).numerator)
+  denom = int(Fraction.from_float(stock_price[i]).limit_denominator(100000).denominator)
+  p_new.set_value(GncNumeric(num, denom))
   p_new.set_source("Finance::Quotes::Historic")
   pdb.add_price(p_new)
 
