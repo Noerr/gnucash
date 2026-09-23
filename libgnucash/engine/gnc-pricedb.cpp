@@ -537,8 +537,11 @@ gnc_price_set_source_string(GNCPrice *p, const char* str)
             gnc_price_set_source(p, s);
             return;
         }
-
-
+    /* No match. PRICE_SOURCE_INVALID is only a loop sentinel, never a settable
+       source, so its string form "invalid" reaches here as well -- and like any
+       other unrecognized string it leaves the source unchanged, which is worth a
+       note in the log. */
+    PWARN("unknown price source string \"%s\"; leaving the source unchanged", str);
 }
 void
 gnc_price_set_typestr(GNCPrice *p, const char* type)
